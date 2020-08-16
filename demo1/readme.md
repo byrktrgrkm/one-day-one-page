@@ -1,1 +1,3 @@
-https://i.ibb.co/3WfTxPf/html-psd-calismasi.jpg
+# DEMO 1 IMAGE TO HTML
+
+![GitHub Logo](/html-psd-calismasi.jpg)
