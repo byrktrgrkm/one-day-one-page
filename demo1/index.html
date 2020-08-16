@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO 1 | DİJİTAL AJANS</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <style>
+        html{
+            font-family: -apple-system;
+            font-family: '-apple-system','HelveticaNeue';
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+           
+        }
+        body{
+            /*overflow-x:hidden;*/
+        }
+
+        a{
+            color:currentColor;
+            text-decoration: none !important;
+        }
+        .header-top{
+            line-height: 100px;
+            min-height:100px;
+            background-color:whitesmoke;
+        }
+
+        .logo{
+            padding:0 30px;
+        }
+        .width-100vw{
+            width:100vw;
+            z-index:9;
+        }
+        nav.menu{
+            
+            font-size:.8rem;
+        }
+        nav.menu a{
+            margin:0 6px;
+            padding:4px 6px;
+        }
+        nav.menu a.m-active{
+            
+            border-bottom:2px solid blue;
+        }
+        .search{
+            position: relative;
+        }
+        .search input{
+            width:150px;
+            padding-right:30px;
+        }
+        .default-btn{
+            border:none;
+            outline:inherit;
+        }
+        .search .search-icon-btn{
+            position: absolute;
+            left:210px;
+            top:0;
+            border:none;
+            outline:inherit;
+        }
+        .search .search-icon{
+            cursor:pointer;
+            position: absolute;
+            right:6px;
+            top:0;
+            line-height: 38px;
+            height: 38px;
+        }
+        .meeting{
+            
+            background: url(assets/images/main.png);
+            height: 50vh;
+            background-repeat: no-repeat;
+            /* width: 100vw; */
+            background-size: 100% 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-position: center center;
+
+
+            
+        }
+        .meeting .hood{
+            border:2px solid black;
+            padding:8px 16px;
+            text-transform: uppercase;
+        }
+        .part{
+            padding:50px 10px;
+        }
+        .menu-title{
+            text-transform: uppercase;
+            font-size: 2.3rem;
+            font-weight: 600;
+            padding:20px 0;
+        }
+        .service{
+            padding:5px 0 5px 0 !important;
+        }
+        .service .title{
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .progress-bar{position: relative;
+            overflow:visible;}
+        .progress-bar::after{
+            content: "%" attr(aria-valuenow);
+            position: absolute;
+            right:0;
+            border-radius: 50%;
+            background-color:black;
+            width:30px;
+            height:30px;
+            color:#fff;
+            line-height: 30px;
+        }
+
+        .honors{
+            padding:16px;
+            border:2px solid black;
+        }
+        .blockquote{
+            font-size:1rem;
+            
+        }
+        .blockquote::before,
+        .blockquote::after{
+            content:'"';
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size:2rem;
+            padding:3px;
+        }
+
+        .author{
+            font-size:1.3rem;
+            font-weight: 600;
+        }
+
+        .blogs-outline{
+            border:3px solid black;
+            padding:40px 20px;
+        }
+        .blogs-title{
+            font-weight: bold;
+            font-size:2rem;
+        }
+        .blog-item{padding:16px;}
+        .blog-item .blog-time{font-family: Georgia, 'Times New Roman', Times, serif;color:gray;}
+        .blog-item .blog-title{font-weight: bold;}
+        .blog-item .blog-author{font-family: Georgia, 'Times New Roman', Times, serif;color:gray;}
+
+        .shop{background-color:#2d3738;min-height:75px;margin:30px 0;}
+
+        .social-icons{
+            padding:10px 0;
+        }
+        .social-icon img{
+            width:30px;
+            height:30px;
+            border-radius: 50%;
+            opacity: .8;
+            border:1px dotted black;
+            padding:6px;
+        }
+        .social-icon img:hover{
+            opacity: 1;
+        }
+        footer{
+            color: #8c7e7e;
+            padding:70px 0 100px 0;
+        }
+        .footer-title{
+            font-weight: bold;
+            color:#312828;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: .05rem;
+        }
+        .footer-nav{
+            padding:20px 0;
+            font-size:.8rem;
+            color:#000;
+        }
+        .copyright{
+            font-size:.7rem;
+            text-align: center;
+        }
+        .collapse-btn{
+            display: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .logo{
+                padding:0;
+            }
+            .mobile-navigation{
+                flex-direction: row-reverse;
+            }
+            .collapse-btn{
+                display:block;
+            }
+            .collapse-by{
+                display:none;
+            }
+            .btn-nav-order{
+                order:2;
+            }
+        }
+        
+    </style>
+    </head>
+<body>
+
+
+
+    <!--
+    <header class="container-fluid px-5 header-top">
+        <div class="row align-items-center justify-content-between">
+            
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="">
+            </div>
+
+            <div class="row align-items-center justify-content-between mobile-navigation btn-nav-order">
+                <div class="items">
+                    <nav class="collapse-btn navbar navbar-dark ">
+                        <button class="navbar-toggler bg-dark " type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </nav>
+            
+                    <div class="collapse-by d-block">
+                    
+                        <nav class="menu">
+                            <a href="#anasayfa" class="m-active">Anasayfa<span class="sr-only">(current)</span></a>
+                            <a href="#servisler">Servisler</a>
+                            <a href="#portfoy">Portfoy</a>
+                            <a href="#blog">Blog</a>
+                            <a href="#market">Market</a>
+                        </nav>
+
+                        <div class="search ml-5">
+                            <form method="GET">
+                                <input type="text" class="form-control">
+                                <button class="search-icon-btn">
+                                    <svg class="search-icon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                        
+                    </div>
+
+                    
+                </div>
+
+            </div>
+            
+
+            <button class="btn btn-sm btn-outline-dark">
+                İLETİŞİME GEÇ
+            </button>
+
+
+        </div>
+
+
+
+
+    </header>
+    -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed width-100vw">
+        <a class="navbar-brand logo" href="#">
+            <img src="assets/images/logo.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#anasayfa">Anasayfa <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#servisler">Servisler</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#portfoy" tabindex="-1" aria-disabled="true">Portfoy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#blog" tabindex="-1" aria-disabled="true">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#market" tabindex="-1" aria-disabled="true">Market</a>
+            </li>
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0 search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="search-icon-btn">
+                <svg class="search-icon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                </svg>
+            </button>
+          </form>
+          <button class="btn btn-sm btn-outline-dark">
+            İLETİŞİME GEÇ
+          </button>
+        </div>
+      </nav>
+
+    <div class="meeting">
+        <div class="hood">
+            <h1>Dijital Ajans</h1>
+        </div>
+    </div>
+    <section class="container part section-1">
+        <div class="menu-title">biz bağımsız bir ajansız</div>
+        <p>
+            Lorem ipsum sit amet lorem sit amet ipsum lorem sit amet Lorem ipsum sit amet lorem sit amet ipsum lorem sit amet Lorem ipsum sit amet lorem sit amet ipsum lorem sit amet
+        </p>
+        <div class="btn btn-outline-dark">
+            Bizim şirket
+        </div>
+    </section>
+
+    <section class="container part section-2" id="servisler">
+        <div class="menu-title">Bizim servislerimiz</div>
+
+        <div class="d-flex">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                  <div class="d-flex service">
+                      <div class="small-image">
+                          <img src="assets/images/small-con.png" alt="">
+                      </div>
+                      <div class="">
+                          <div class="title">Web Tasarım</div>
+                          <small class="content">Lorem ipsum sit amet lorem sit amet ipsum Lorem ipsum sit amet lorem sit amet ipsum</small>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12 col-md-6">
+                    <div class="d-flex service">
+                        <div class="small-image">
+                            <img src="assets/images/small-con.png" alt="">
+                        </div>
+                        <div class="">
+                            <div class="title">Geliştirme</div>
+                            <small class="content">Lorem ipsum sit amet lorem sit amet ipsum Lorem ipsum sit amet lorem sit amet ipsum</small>
+                        </div>
+                    </div>
+              </div>
+              <div class="col-12 col-md-6">
+                    <div class="d-flex service">
+                        <div class="small-image">
+                            <img src="assets/images/small-con.png" alt="">
+                        </div>
+                        <div class="">
+                            <div class="title">Markalama</div>
+                            <small class="content">Lorem ipsum sit amet lorem sit amet ipsum Lorem ipsum sit amet lorem sit amet ipsum</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="d-flex service">
+                        <div class="small-image">
+                            <img src="assets/images/small-con.png" alt="">
+                        </div>
+                        <div class="">
+                            <div class="title">Pazarlama</div>
+                            <small class="content">Lorem ipsum sit amet lorem sit amet ipsum Lorem ipsum sit amet lorem sit amet ipsum</small>
+                        </div>
+                    </div>
+                </div>
+              
+
+              <!--ROW END--> 
+            </div>
+            <!--flex end-->
+        </div>
+      
+    </section>
+
+    <section class="container part section-3" id="portfoy">
+        <div class="menu-title d-flex justify-content-between">
+            Bizim Portfoyumuz
+            <button class="btn btn-sm btn-outline-dark align-self-end">
+                Tümünü Gör
+            </button>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 col-lg-4 py-3 text-center">
+                    <a href="">
+                        <img src="assets/images/portfoy-1.png" alt="">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 py-3 text-center">
+                    <a href="">
+                        <img src="assets/images/portfoy-2.png" alt="">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 py-3 text-center">
+                    <a href="">
+                        <img src="assets/images/portfoy-3.png" alt="">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 py-3 text-center">
+                    <a href="">
+                        <img src="assets/images/portfoy-4.png" alt="">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 py-3 text-center">
+                    <a href="">
+                        <img src="assets/images/portfoy-5.png" alt="">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 py-3 text-center">
+                    <a href="">
+                        <img src="assets/images/portfoy-6.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="container part section-4">
+        <div class="row align-items-center px-5">
+            <div class="col-6 col-md-3">
+                <h3>90+</h3>
+                <p>Tamamlanmış Projeler</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <h3>120+</h3>
+                <p>Mutlu Müşteriler</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <h3>50+</h3>
+                <p>Web Ödülleri</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <h3>320+</h3>
+                <p>Fincan Kahve</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container part section-5">
+        <div class="row">
+
+            <div class="col-12 col-md-6">
+                <div class="d-flex flex-column">
+                    <div class="item">
+                        <p>Photoshop</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p>Photoshop</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p>Photoshop</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p>Photoshop</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 honors mt-5 mt-md-0">
+
+                    <blockquote class="blockquote">
+                        Lorem ipsum sit amet lorem sit amet ipsum Lorem ipsum sit amet lorem ipsum sit amet lorem
+                        Lorem ipsum sit amet lorem sit amet ipsum Lorem ipsum sit amet lorem
+                        Lorem ipsum sit amet lorem sit amet ipsum Lorem ipsum sit amet lorem
+                    </blockquote>
+                    <div class="d-flex justify-content-between">
+                        
+                        <div class="author">
+                            Leonard
+                        </div>
+                        <div class="buttons" style="position:relative;">
+                            
+                            <button class="default-btn">
+
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.646 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
+                                </svg>
+                            </button>
+                        
+                            <button class="default-btn">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>    
+
+            </div>
+            
+        </div>
+
+    </section>
+
+
+    <section class="container blogs mt-5 section-6" id="blog">
+        <div class="row">
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-between blogs-outline ">
+                <div class="blogs-title">BLOGLAR</div>
+                <button class="btn btn-outline-dark my-3">Tümünü gör</button>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="row px-5">
+
+                        <div class="col-6 blog-item">
+                            <div class="blog-time">02 Ocak 2016</div>
+                            <div class="blog-title">Sanat ve tasarım arasındaki fark</div>
+                            <div class="blog-author">Kwi Leonard</div>
+                        </div>
+
+                        <div class="col-6 blog-item">
+                            <div class="blog-time">02 Ocak 2016</div>
+                            <div class="blog-title">En iyi 10 grafik tasarım aracı</div>
+                            <div class="blog-author">Kwi Leonard</div>
+                        </div>
+
+                        <div class="col-6 blog-item">
+                            <div class="blog-time">02 Ocak 2015</div>
+                            <div class="blog-title">En iyi 60 Photoshop fırçası</div>
+                            <div class="blog-author">Kwi Leonard</div>
+                        </div>
+
+                        <div class="col-6 blog-item">
+                            <div class="blog-time">02 Ocak 2013</div>
+                            <div class="blog-title">Photshop neden tercih edilir?</div>
+                            <div class="blog-author">Kwi Leonard</div>
+                        </div>
+                        
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop section-7" id="market">
+        <div class="container">
+            <div class="row align-items-center justify-content-between shop">
+                <div class="col">
+                    <img src="assets/images/shop-jquery.png" alt="">
+                </div>
+                <div class="col">
+                    <img src="assets/images/shop-envato.png" alt="">
+                </div>
+                <div class="col">
+                    <img src="assets/images/shop-adobe.png" alt="">
+                </div>
+                <div class="col">
+                    <img src="assets/images/shop-wordpress.png" alt="">
+                </div>
+                <div class="col">
+                    <img src="assets/images/shop-sass.png" alt="">
+                </div>
+                <div class="col">
+                    <img src="assets/images/shop-google.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="section-8">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-sm-4">
+                    <div class="logo">
+                        <img src="assets/images/logo.png" alt="">
+                    </div>
+                    <div>
+                        Lorem ipsum sit amet lorem ipsum sit amet lorem ipsum ler laner sit men len amet
+                    </div>
+                    <div class="social-icons">
+                        <nav>
+                            <a class="social-icon" href="">
+                                <img src="assets/images/facebook-icon50x.png" alt="">
+                            </a>
+                            <a class="social-icon" href="">
+                                <img src="assets/images/twitter-icon50x.jpg" alt="">
+                            </a>
+                            <a class="social-icon" href="">
+                                <img src="assets/images/pinterest-icon50x.png" alt="">
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-sm-4">
+                    <div class="footer-title">
+                        Bizimle iletişime geç
+                    </div>
+                    <p>
+                        <b>A:</b> 40 Montey sokak 122/2 Ankara,Türkiye
+                    </p>
+                    <p>
+                        <b>P:</b> (00) 123 451 558
+                    </p>
+                    <p>
+                        <b>F:</b> (00) 544 565 511
+                    </p>
+                    <p>
+                        <b>E:</b> info.contact@webpages.com
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="footer-title">
+                        Bizim Portfolyo
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img class="p-1" height="70" width="70" src="assets/images/portfoy-1.png" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img class="p-1" height="70" width="70" src="assets/images/portfoy-2.png" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img class="p-1" height="70" width="70" src="assets/images/portfoy-3.png" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img class="p-1" height="70" width="70" src="assets/images/portfoy-4.png" alt="">
+                        </div>
+
+                        <div class="col-3">
+                            <img class="p-1" height="70" width="70" src="assets/images/portfoy-5.png" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img class="p-1" height="70" width="70" src="assets/images/portfoy-6.png" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img class="p-1" height="70" width="70" src="assets/images/portfoy-1.png" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img class="p-1" height="70" width="70" src="assets/images/portfoy-2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="container text-center footer-nav">
+            <a href="">Hakkında | </a>
+            <a href="">Blog |</a>
+            <a href="">Müşteri Servisi |</a>
+            <a href="">Şartlar |</a>
+            <a href="">İletişim</a>
+        </nav>
+        <div class="copyright">Copyright 2020</div>
+
+    </footer>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.js"></script>
+    <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script>
+
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline();
+        tl.from(".section-1",{xPercent:-100})
+        .from(".section-2",{xPercent:100})
+        .from(".section-3",{xPercent:-100})
+        .from(".section-4",{xPercent:100})
+        .from(".section-5",{xPercent:-100})
+        .from(".section-6",{xPercent:100})
+        .from(".section-7",{xPercent:-100})
+        .from(".section-8",{xPercent:100})
+        gsap.fromTo(".section-2", {opacity: 0}, {opacity:1, duration: 3});
+        gsap.fromTo(".section-3", {opacity: 0}, {opacity:1, duration: 3});
+        gsap.fromTo(".section-4", {opacity: 0}, {opacity:1, duration: 3});
+        gsap.fromTo(".section-5", {opacity: 0}, {opacity:1, duration: 3});
+
+        gsap.to(".section-1",{
+            scrollTrigger:{
+                trigger:".section-1",
+                oggleActions:"pause pause reverse reverse",
+                start: "top center",
+                scrup:true
+                
+            },
+            x:33,
+            ease:'none',
+            opacity:1,
+            duration:1.3
+        })
+        /*
+        gsap.to(".section-1",{
+            scrollTrigger:{
+                trigger:".section-1",
+                toggleActions:"none none none reset",
+                start: "top top",
+                end: "+=300",
+                markers: true,
+                snap:1,
+                xPercent:-100
+              
+            },
+            opacity:0,
+            duration:1.3
+        })
+        gsap.to(".section-2",{
+            scrollTrigger:{
+                trigger:".section-2",
+                toggleActions:"none none none pause",
+                start: "top top",
+                end: "+=300",
+                markers: true,
+                snap:1
+              
+            },
+            xPercent:-100,
+            duration:1.3
+        })
+*/
+    </script>
+</body>
+</html>
