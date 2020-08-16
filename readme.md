@@ -4,10 +4,12 @@
 
 ### Günlük
 
-16.8.2020
+16.08.2020
 
-Dijital ajans html sayfası hazırlandı.
+Dijital ajans DEMO-1 html sayfası hazırlandı.
 
 
+16.08.2020
 
+Dijital ajans DEMO-2 html sayfası hazırlandı
 
