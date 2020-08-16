@@ -1,3 +1,3 @@
 # DEMO 1 IMAGE TO HTML
 
-![GitHub Logo](/html-psd-calismasi.jpg)
+![GitHub Logo](/demo1/html-psd-calismasi.jpg)
